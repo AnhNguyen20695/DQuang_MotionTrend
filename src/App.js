@@ -17,11 +17,8 @@ function App() {
   const [modalAvatar, setModalAvatar] = useState()
   const [modalImage, setModalImage] = useState()
   const [modalYear, setModalYear] = useState()
-  axios({
-    method: 'get',
-    url: 'https://yts.torrentbay.to/api/v2/list_movies.json?limit=50'
-  }).then((res) => {
-  // axios.get("/api/v2/list_movies.json?limit=50").then((res) => {
+  let url = 'https://yts.torrentbay.to/api/v2/list_movies.json?limit=50'
+  fetch(url).then((res) => {
     setMenuList(res.data.data.movies)
   })
 
