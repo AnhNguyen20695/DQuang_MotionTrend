@@ -19,8 +19,10 @@ function App() {
   const [modalYear, setModalYear] = useState()
 
   axios.defaults.baseURL = 'https://yts.torrentbay.to';
-  axios.get("/api/v2/list_movies.json?limit=50").then((res) => {
-    res.header("Access-Control-Allow-Origin", "*");
+  axios.get("/api/v2/list_movies.json?limit=50",{ crossdomain: true }).then((res) => {
+    res.header("Access-Control-Allow-Origin", "https://yts.torrentbay.to");
+    res.header("Access-Control-Allow-Credentials", true);
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     setMenuList(res.data.data.movies)
   })
 
