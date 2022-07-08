@@ -18,6 +18,7 @@ function App() {
   const [modalImage, setModalImage] = useState()
   const [modalYear, setModalYear] = useState()
 
+  axios.defaults.baseURL = 'https://yts.torrentbay.to';
   axios.get("/api/v2/list_movies.json?limit=50").then((res) => {
     setMenuList(res.data.data.movies)
   })
