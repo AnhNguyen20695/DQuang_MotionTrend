@@ -17,8 +17,11 @@ function App() {
   const [modalAvatar, setModalAvatar] = useState()
   const [modalImage, setModalImage] = useState()
   const [modalYear, setModalYear] = useState()
-  let url = 'https://yts.torrentbay.to/api/v2/list_movies.json?limit=50'
-  fetch(url).then((res) => {
+  let url = '/api/v2/list_movies.json?limit=50'
+  axios.get(url,{
+    proxy: {
+        host: 'https://yts.torrentbay.to',
+    }}).then((res) => {
     setMenuList(res.data.data.movies)
   })
 
